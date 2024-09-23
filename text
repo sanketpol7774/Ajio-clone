@@ -1,0 +1,204 @@
+
+var property = [
+    { taskItem: "Wake up at 7AM"},
+    {taskItem: "Brush teeth"},
+    {taskItem: "Eat breakfast" }
+  ];
+
+ 
+function  netflix(){  
+
+  
+  var box=document.querySelector('.box');
+
+  box.textContent = ''; 
+  property.forEach(a=>{
+
+    var heading=document.createElement("h3");
+    box.appendChild(heading);
+    heading.textContent=a.taskItem;
+
+});
+}
+
+function batton(){
+    var inputbox =document.getElementById("inputbox").value;
+
+ 
+
+    var sann ={
+        taskItem:inputbox
+      };
+
+      property.push(sann);
+
+      netflix();  
+  
+
+}
+
+function lastobject(){
+
+  property.pop();
+
+  netflix();
+
+}
+
+
+
+
+
+
+
+var property = [
+  {
+      image: "/dennislingo_premium_attire_green_striped_slim_fit_shirt.jpg",
+      name: "DENNISLINGO PREMIUM ATTIRE",
+      prize: "515 RS"
+  }
+];
+
+// Assuming this is the correct selector for your cart element
+var cart = document.querySelector("#cart");
+
+// Function to display items in the cart
+function first() {
+  // Clear the cart before adding items
+  cart.innerHTML = ""; 
+
+  property.forEach(item => {
+      var box = document.createElement("div");
+      box.className = "box";
+
+      var picture = document.createElement("img");
+      var heading = document.createElement("h3");
+      var priz = document.createElement("h2");
+
+      picture.src = item.image;
+      heading.textContent = item.name;
+      priz.textContent = item.prize;
+
+      box.appendChild(picture);
+      box.appendChild(heading);
+      box.appendChild(priz);
+
+      cart.appendChild(box);
+  });
+}
+
+// This function simulates adding an item to a cart array
+function addToCart() {
+  // Using property array directly for this example
+  property.forEach(item => {
+      // Here you could implement logic to manage the cart
+      // For now, we'll just log the item
+      console.log("Added to cart:", item);
+  });
+}
+
+// Function to remove the last object from the property array
+function removeLastObject() {
+  if (property.length > 0) {
+      property.pop(); // Remove the last item
+  }
+  first(); // Update the display after removal
+}
+
+// Initial call to display items
+first();
+// 
+
+
+
+
+
+
+
+var property = [
+  {image: "/dennislingo_premium_attire_green_striped_slim_fit_shirt.jpg",
+   name: "DENNISLINGO PREMIUM ATTIRE",
+   prize: "515 RS"
+  }
+];
+
+function first() {
+  property.forEach((a, index) => {
+      var box = document.createElement("div");
+      box.className = "box";
+      box.onclick = function() {
+          removeProperty(index); // Call remove function with the index
+      };
+
+      cart.appendChild(box);
+
+      var picture = document.createElement("img");
+      var heading = document.createElement("h3");
+      var priz = document.createElement("h2");
+
+      box.appendChild(picture);
+      box.appendChild(heading);
+      box.appendChild(priz);
+
+      picture.src = a.image;
+      heading.textContent = a.name;
+      priz.textContent = a.prize;
+  });
+}
+
+function removeProperty(index) {
+  // Remove from the property array
+  property.splice(index, 1);
+  
+  // Clear the cart container
+  cart.innerHTML = '';
+  
+  // Re-render the items
+  first();
+}
+
+
+
+
+
+
+
+
+
+
+
+function first() {
+  // Create the product box
+  var box = document.createElement("div");
+  box.className = "box";
+
+  // Append the box to the cart
+  cart.appendChild(box);
+
+  // Create the elements
+  var picture = document.createElement("img");
+  var heading = document.createElement("h3");
+  var prize = document.createElement("h2");
+
+  // Define the product property
+  var property = {
+      image: "/dennislingo_premium_attire_green_striped_slim_fit_shirt.jpg",
+      name: "DENNISLINGO PREMIUM ATTIRE",
+      prize: "515 RS"
+  };
+
+  // Set the content for the elements
+  picture.src = property.image;
+  heading.textContent = property.name;
+  prize.textContent = property.prize;
+
+  // Append the elements to the box
+  box.appendChild(picture);
+  box.appendChild(heading);
+  box.appendChild(prize);
+
+  // Optional: If 'cart' is an array, push the property
+  if (Array.isArray(cart)) {
+      cart.push(property);
+  }
+}
